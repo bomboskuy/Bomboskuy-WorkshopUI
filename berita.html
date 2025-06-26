@@ -1,121 +1,133 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Berita - Bomboskuy</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" href="assets/bomboskuy-nobg.png" />  
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="icon" type="image/png" href="assets/bomboskuy-nobg.png" />
   <style>
-    body { 
-      font-family: 'Nunito', sans-serif; 
-      background: linear-gradient(135deg, #FDF2E9 0%, #FAE5D3 100%);
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: linear-gradient(135deg, #fff6ec 0%, #ffedd5 100%);
     }
     .card-hover {
-      transition: all 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .card-hover:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      transform: translateY(-6px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     }
   </style>
 </head>
-<body class="min-h-screen">
+<body class="min-h-screen text-gray-800">
+
   <!-- Navbar -->
-  <header class="bg-white shadow-lg sticky top-0 z-40">
-    <div class="container mx-auto flex items-center justify-between px-6 py-4">
-      <div class="flex items-center space-x-3">
-        <div class="w-16 h-16 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full flex items-center justify-center">
-            <a href="https://www.instagram.com/bomboskuy" target="_blank" rel="noopener noreferrer">
-              <img src="assets/bomboskuy-nobg.png" alt="Logo Bomboskuy" class="w-16 h-16 rounded-full">
-            </a>
-        </div>
-      </div>
-      <nav class="hidden md:flex space-x-8">
-        <a href="home.html" class="text-gray-700 hover:text-orange-600 font-semibold transition-colors">Tentang Kami</a>
-        <a href="produk.html" class="text-gray-700 hover:text-orange-600 font-semibold transition-colors">Produk</a>
-        <a href="berita.html" class="text-orange-600 font-semibold">Berita</a>
-      </nav>
-      <div class="flex items-center space-x-4">
-        <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">
-          <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-          </svg>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <!-- Berita Section -->
-  <section class="container mx-auto px-6 py-12">
-    <div class="text-center mb-12">
-      <h2 class="text-4xl font-bold text-gray-800 mb-4">Berita Terkini</h2>
-      <div class="w-24 h-1 bg-gradient-to-r from-orange-400 to-orange-600 mx-auto"></div>
-    </div>
-    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-      <!-- Berita 1 -->
-      <a href="#berita1" class="block bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
-        <img src="assets/drian.jpg" alt="Bomboskuy di Acara Kuliner" class="w-full h-48 object-cover">
-        <div class="p-5">
-          <h3 class="text-lg font-bold text-gray-800 mb-1">Bomboskuy Hadir di Festival Kuliner 2025</h3>
-          <p class="text-gray-600 text-sm mt-2">Ribuan pengunjung mencicipi bomboloni khas kami di acara kuliner nasional.</p>
-        </div>
-      </a>
-      <!-- Berita 2 -->
-      <a href="#berita2" class="block bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
-        <img src="assets/bombo-matcha.jpg" alt="Launching Rasa Baru" class="w-full h-48 object-cover">
-        <div class="p-5">
-          <h3 class="text-lg font-bold text-gray-800 mb-1">Bomboskuy Luncurkan Varian Matcha dan Tiramisu</h3>
-          <p class="text-gray-600 text-sm mt-2">Dua rasa baru yang langsung jadi favorit pelanggan setia kami!</p>
-        </div>
-      </a>
-      <!-- Berita 3 -->
-      <a href="#berita3" class="block bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
-        <img src="assets/umkm.jpg" alt="Mitra UMKM" class="w-full h-48 object-cover">
-        <div class="p-5">
-          <h3 class="text-lg font-bold text-gray-800 mb-1">Bomboskuy Gandeng UMKM Lokal</h3>
-          <p class="text-gray-600 text-sm mt-2">Kami bekerja sama dengan petani lokal untuk bahan baku berkualitas.</p>
-        </div>
-      </a>
-    </div>
-
-    <!-- Artikel Berita Detail (Simulasi tanpa redirect) -->
-    <div id="berita1" class="mt-12">
-      <h3 class="text-2xl font-bold text-gray-800 mb-2">Bomboskuy Hadir di Festival Kuliner 2025</h3>
-      <p class="text-gray-600">Pada bulan Maret 2025, Bomboskuy mengikuti Festival Kuliner Nasional di Jakarta. Kami menyajikan lebih dari 500 bomboloni kepada pengunjung dan menerima banyak pujian. Terima kasih atas dukungannya!</p>
-    </div>
-
-    <div id="berita2" class="mt-12">
-      <h3 class="text-2xl font-bold text-gray-800 mb-2">Bomboskuy Luncurkan Varian Matcha dan Tiramisu</h3>
-      <p class="text-gray-600">Kami dengan bangga memperkenalkan dua rasa baru: Matcha dan Tiramisu. Rasa ini dibuat dari bahan pilihan dan sudah tersedia di semua outlet Bomboskuy!</p>
-    </div>
-
-    <div id="berita3" class="mt-12">
-      <h3 class="text-2xl font-bold text-gray-800 mb-2">Bomboskuy Gandeng UMKM Lokal</h3>
-      <p class="text-gray-600">Untuk menjaga kualitas dan mendukung perekonomian lokal, kami bekerjasama langsung dengan petani dan produsen bahan baku di daerah Karanganyar dan sekitarnya.</p>
-    </div>
+  <div id="header-placeholder"></div>
+  
+  <main class="pt-20"></main>
+  <!-- Judul -->
+  <section class="text-center py-12">
+    <h1 class="text-4xl font-bold mb-2">Berita Terkini</h1>
+    <p class="text-gray-600">Ikuti info terbaru dari Bomboskuy</p>
+    <div class="w-24 h-1 bg-gradient-to-r from-orange-400 to-orange-600 mx-auto mt-4"></div>
   </section>
 
+  <!-- Kartu Berita -->
+  <section id="berita-grid" class="grid gap-6 px-6 pb-16 max-w-6xl mx-auto md:grid-cols-2 lg:grid-cols-3"></section>
+
+
   <!-- Footer -->
-  <footer class="bg-gray-900 text-white py-12">
-    <div class="container mx-auto px-6">
-      <div class="text-center">
-        <div class="flex items-center justify-center space-x-3 mb-6">
-        <div class="w-12 h-12 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full flex items-center justify-center">
-            <img src="assets/bomboskuy-nobg.png" alt="Logo Bomboskuy" class="w-12 h-12 rounded-full">
-        </div>
-          <h3 class="text-2xl font-bold">Bomboskuy</h3>
-        </div>
-        <p class="text-gray-400 mb-8 max-w-2xl mx-auto">
-          Bomboloni manis, lembut, dan bikin ketagihan! Memberikan kelezatan di setiap momen kehidupan Anda.
-        </p>
-        <div class="border-t border-gray-800 pt-8">
-          <p class="text-gray-500">&copy; 2025 Bomboskuy. All rights reserved.</p>
-        </div>
+  <footer class="bg-gray-900 text-white py-10">
+    <div class="text-center">
+      <div class="flex justify-center items-center space-x-3 mb-4">
+        <img src="assets/bomboskuy-nobg.png" class="w-10 h-10 rounded-full" />
+        <span class="text-xl font-semibold">Bomboskuy</span>
       </div>
+      <p class="text-gray-400 mb-4">Bomboloni manis, lembut, dan bikin ketagihan! Untuk setiap momen hidup Anda.</p>
+      <p class="text-gray-600 text-sm">&copy; 2025 Bomboskuy. All rights reserved.</p>
     </div>
   </footer>
-</body>
+
+  <script>
+  const beritaList = [
+    {
+      id: "festival2025",
+      title: "Bomboskuy Guncang Festival Kuliner Nasional 2025 di Surabaya!",
+      desc: "Ribuan pengunjung mencicipi bomboloni khas kami di acara kuliner nasional.",
+      image: "assets/drian.jpg"
+    },
+    {
+      id: "matcha-tiramisu",
+      title: "Bomboskuy Hadirkan Sensasi Baru: Matcha dan Tiramisu Kini Tersedia!",
+      desc: "Rasa baru favorit pelanggan setia kami!",
+      image: "assets/bombo-matcha.jpg"
+    },
+    {
+      id: "umkm-lokal",
+      title: "Bomboskuy Perkuat Komitmen, Gandeng UMKM Lokal untuk Kualitas Terbaik dan Pemberdayaan Ekonomi",
+      desc: "Kami bekerja sama dengan petani lokal demi bahan baku berkualitas.",
+      image: "assets/umkm.jpg"
+    },
+    {
+      id: "mahasiswa-luarnegri",
+      title: "Tak Disangka! Bomboskuy Jadi Favorit Mahasiswa dari Eropa & Kanada!",
+      desc: "Kelezatan Bomboskuy lintas benua, disukai berbagai bangsa.",
+      image: "assets/Canada Polandia Slovakia Customer.jpg"
+    },
+  ];
+
+  const grid = document.getElementById("berita-grid");
+
+  beritaList.forEach((item, index) => {
+    const card = document.createElement("a");
+    card.href = `berita-detail.html?id=${item.id}`;
+    card.className = "bg-white rounded-2xl overflow-hidden shadow card-hover";
+    card.innerHTML = `
+      <img src="${item.image}" class="w-full h-48 object-cover" alt="${item.title}" />
+      <div class="p-5">
+        <h3 class="text-lg font-bold">${item.title}</h3>
+        <p class="text-sm text-gray-600 mt-2">${item.desc}</p>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+
+  // Pusatkan baris jika item tidak kelipatan 3
+  const total = beritaList.length;
+  const remainder = total % 3;
+
+  if (remainder === 1) {
+    grid.lastElementChild.classList.add("lg:col-span-3", "lg:mx-auto", "max-w-md");
+  } else if (remainder === 2) {
+    grid.children[total - 2].classList.add("lg:col-span-2");
+    grid.children[total - 1].classList.add("lg:col-span-2");
+  }
+
+
+</script>
+
+    <script>
+    // Dapatkan nama file halaman yang sedang dibuka
+    const currentPage = window.location.pathname.split("/").pop();
+
+    // Tentukan file header yang akan dimuat
+    let headerFile;
+
+    if (currentPage === "" || currentPage === "home.html" || currentPage === "index.html") {
+      headerFile = "layout/header.html"; // untuk halaman home
+    } else {
+      headerFile = "layout/header2.html"; // untuk halaman lain
+    }
+
+    // Muat header yang sesuai
+    fetch(headerFile)
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header-placeholder").innerHTML = data;
+      });
+    </script>
+    
 </body>
 </html>

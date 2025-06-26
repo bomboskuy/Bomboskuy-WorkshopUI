@@ -1,0 +1,57 @@
+    const produkList = {
+      "bomboloni-coklat": {
+        nama: "Bomboloni Coklat",
+        deskripsi: "Bomboloni isi coklat dengan topping glaze coklat lumer. Cocok untuk pecinta manis!",
+        gambar: "assets/bombo-coklat.jpg",
+        harga: 10000
+      },
+      "bomboloni-keju": {
+        nama: "Bomboloni Keju",
+        deskripsi: "Lembutnya donat dengan isian krim keju gurih dan taburan keju parut.",
+        gambar: "assets/bombo-keju.jpg",
+        harga: 10000
+      },
+      "bomboloni-matcha": {
+        nama: "Bomboloni Matcha",
+        deskripsi: "Bomboloni dengan rasa khas teh hijau Jepang yang nikmat dan ringan.",
+        gambar: "assets/bombo-matcha.jpg",
+        harga: 10000
+      },
+      "bomboloni-tiramisu": {
+        nama: "Bomboloni Tiramisu",
+        deskripsi: "Bomboloni rasa tiramisu lembut dengan sentuhan kopi dan krim.",
+        gambar: "assets/bombo-tiramisu.jpg",
+        harga: 10000
+      },
+      "bomboloni-stroberi": {
+        nama: "Bomboloni Stroberi",
+        deskripsi: "Isian stroberi segar berpadu dengan lembutnya bomboloni.",
+        gambar: "assets/bombo-stroberi.jpg",
+        harga: 10000
+      },
+      "bomboloni-vanilla": {
+        nama: "Bomboloni Vanilla",
+        deskripsi: "Bomboloni klasik dengan isian krim vanilla manis.",
+        gambar: "assets/bombo-vanilla.jpg",
+        harga: 10000
+      },
+      "bomboloni-pisang": {
+        nama: "Bomboloni Pisang",
+        deskripsi: "Perpaduan bomboloni dengan isian pisang manis.",
+        gambar: "assets/bombo-pisang.jpg",
+        harga: 10000
+      },
+      "bomboloni-blueberry": {
+        nama: "Bomboloni Blueberry",
+        deskripsi: "Lezatnya bomboloni dengan selai blueberry segar.",
+        gambar: "assets/bombo-blueberry.jpg",
+        harga: 10000
+      },
+      "bomboloni-taro": {
+        nama: "Bomboloni Taro",
+        deskripsi: "Bomboloni taro dengan rasa manis dan warna ungu menarik.",
+        gambar: "assets/bombo-taro.jpg",
+        harga: 10000
+
+      },
+    };

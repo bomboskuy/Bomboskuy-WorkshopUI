@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Riwayat Transaksi - Bomboskuy</title>
+  <link rel="icon" type="image/png" href="assets/bomboskuy-nobg.png" />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(135deg, #fff7ed, #ffedd5);
+      font-family: 'Arial', sans-serif;
+    }
+    .badge {
+      padding: 0.2rem 0.5rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    .badge-success {
+      background-color: #bbf7d0;
+      color: #166534;
+    }
+    .badge-pending {
+      background-color: #fef08a;
+      color: #854d0e;
+    }
+    .badge-failed {
+      background-color: #fecaca;
+      color: #991b1b;
+    }
+    .btn-detail {
+      background-color: #f97316;
+      color: white;
+      padding: 0.3rem 0.8rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      transition: background 0.3s;
+    }
+    .btn-detail:hover {
+      background-color: #ea580c;
+    }
+  </style>
+</head>
+<body class="min-h-screen text-gray-800">
+  <!-- Navbar -->
+<div id="header-placeholder"></div>
+
+  
+    <main class="pt-20"></main>
+  <div class="max-w-4xl mx-auto p-6">
+        <!-- Tombol Kembali -->
+    <a href="profile.html" class="btn-back text-sm">&larr; Kembali ke Profil</a>
+    <h1 class="text-3xl font-bold mb-6 text-center">Riwayat Transaksi</h1>
+
+    <!-- Tabel Transaksi -->
+    <div class="bg-white rounded-2xl shadow-md overflow-x-auto">
+      <table class="w-full table-auto">
+        <thead class="bg-orange-100 text-gray-700 text-sm">
+          <tr>
+            <th class="px-4 py-3 text-left">No. Transaksi</th>
+            <th class="px-4 py-3 text-left">Tanggal</th>
+            <th class="px-4 py-3 text-left">Total</th>
+            <th class="px-4 py-3 text-left">Status</th>
+            <th class="px-4 py-3 text-left">Aksi</th>
+          </tr>
+        </thead>
+        <tbody class="text-sm divide-y divide-gray-200">
+          <!-- Dummy Data -->
+          <tr>
+            <td class="px-4 py-3 font-medium">TRX20250601</td>
+            <td class="px-4 py-3">1 Juni 2025</td>
+            <td class="px-4 py-3">Rp30.000</td>
+            <td class="px-4 py-3"><span class="badge badge-success">Berhasil</span></td>
+            <td class="px-4 py-3"><a href="#" class="btn-detail">Lihat Detail</a></td>
+          </tr>
+          <tr>
+            <td class="px-4 py-3 font-medium">TRX20250602</td>
+            <td class="px-4 py-3">2 Juni 2025</td>
+            <td class="px-4 py-3">Rp50.000</td>
+            <td class="px-4 py-3"><span class="badge badge-pending">Menunggu</span></td>
+            <td class="px-4 py-3"><a href="#" class="btn-detail">Lihat Detail</a></td>
+          </tr>
+          <tr>
+            <td class="px-4 py-3 font-medium">TRX20250603</td>
+            <td class="px-4 py-3">3 Juni 2025</td>
+            <td class="px-4 py-3">Rp30.000</td>
+            <td class="px-4 py-3"><span class="badge badge-failed">Gagal</span></td>
+            <td class="px-4 py-3"><a href="#" class="btn-detail">Lihat Detail</a></td>
+          </tr>
+          <tr>
+            <td class="px-4 py-3 font-medium">TRX20250604</td>
+            <td class="px-4 py-3">4 Juni 2025</td>
+            <td class="px-4 py-3">Rp100.000</td>
+            <td class="px-4 py-3"><span class="badge badge-success">Berhasil</span></td>
+            <td class="px-4 py-3"><a href="#" class="btn-detail">Lihat Detail</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+    </script>
+
+      <script>
+    // Dapatkan nama file halaman yang sedang dibuka
+    const currentPage = window.location.pathname.split("/").pop();
+
+    // Tentukan file header yang akan dimuat
+    let headerFile;
+
+    if (currentPage === "" || currentPage === "home.html" || currentPage === "index.html") {
+      headerFile = "layout/header.html"; // untuk halaman home
+    } else {
+      headerFile = "layout/header2.html"; // untuk halaman lain
+    }
+
+    // Muat header yang sesuai
+    fetch(headerFile)
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header-placeholder").innerHTML = data;
+      });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kelola Pengguna - Bomboskuy</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <link href="./assets/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
+  <script src="https://unpkg.com/@popperjs/core@2"></script>
+  <link href="./assets/css/argon-dashboard-tailwind.css?v=1.0.1" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="assets/bomboskuy-nobg.png" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: linear-gradient(135deg, #fff8f0 0%, #fff4e5 100%);
+    }
+    .swal2-confirm {
+      background-color: #f97316 !important;
+      color: white !important;
+      font-weight: bold;
+    }
+    .swal2-cancel {
+      background-color: #6b7280 !important;
+      color: white !important;
+      font-weight: bold;
+    }
+    .swal2-confirm.delete-button {
+      background-color: #dc2626 !important;
+    }
+  </style>
+</head>
+<body class="m-0 font-sans text-base antialiased font-normal dark:bg-slate-900 leading-default bg-gray-50 text-slate-500">
+  <div class="absolute w-full bg-blue-500 dark:hidden min-h-75"></div>
+
+  <!-- Sidebar -->
+  <aside class="fixed inset-y-0 flex-wrap items-center justify-between block w-full p-0 my-4 overflow-y-auto antialiased transition-transform duration-200 -translate-x-full bg-white border-0 shadow-xl dark:shadow-none dark:bg-slate-850 max-w-64 ease-nav-brand z-990 xl:ml-6 rounded-2xl xl:left-0 xl:translate-x-0" aria-expanded="false">
+    <div class="h-19">
+      <a class="block px-8 py-6 m-0 text-sm whitespace-nowrap dark:text-white text-slate-700" href="home.html">
+        <img src="./assets/bomboskuy-nobg.png" class="inline h-full max-w-full transition-all duration-200 dark:hidden ease-nav-brand max-h-8" alt="main_logo" />
+        <span class="ml-1 font-semibold transition-all duration-200 ease-nav-brand">Bomboskuy</span>
+      </a>
+    </div>
+    <hr class="h-px mt-0 bg-transparent bg-gradient-to-r from-transparent via-black/40 to-transparent dark:bg-gradient-to-r dark:from-transparent dark:via-white dark:to-transparent" />
+    <div class="items-center block w-auto max-h-screen overflow-auto h-sidenav grow basis-full">
+      <ul class="flex flex-col pl-0 mb-0">
+        <li class="mt-0.5 w-full">
+          <a class="py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors" href="admin.html">
+            <div class="mr-2 flex h-8 w-8 items-center justify-center">
+              <i class="ni ni-tv-2"></i>
+            </div>
+            <span class="ml-1">Dashboard</span>
+          </a>
+        </li>
+        <li class="mt-0.5 w-full">
+          <a class="py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors" href="admin-kelola-artikel.html">
+            <div class="mr-2 flex h-8 w-8 items-center justify-center text-orange-500">
+              <i class="ni ni-single-copy-04"></i>
+            </div>
+            <span class="ml-1 duration-300">Kelola Artikel</span>
+          </a>
+        </li>
+        <li class="mt-0.5 w-full">
+          <a class="py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap rounded-lg px-4 transition-colors" href="admin-kelola-produk.html">
+            <div class="mr-2 flex h-8 w-8 items-center justify-center text-emerald-500">
+              <i class="ni ni-box-2"></i>
+            </div>
+            <span class="ml-1">Kelola Produk</span>
+          </a>
+        </li>
+        <li class="mt-0.5 w-full">
+          <a class="py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors rounded-lg px-4 font-semibold text-slate-700 transition-colors bg-blue-500/13" href="admin-kelola-pengguna.html">
+            <div class="mr-2 flex h-8 w-8 items-center justify-center text-cyan-500">
+              <i class="ni ni-circle-08"></i>
+            </div>
+            <span class="ml-1">Kelola Pengguna</span>
+          </a>
+        </li>
+        <li class="mt-0.5 w-full">
+          <a class="py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors" href="admin-kelola-transaksi.html">
+            <div class="mr-2 flex h-8 w-8 items-center justify-center text-red-500">
+              <i class="ni ni-credit-card"></i>
+            </div>
+            <span class="ml-1">Kelola Transaksi</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </aside>
+
+        <main class="relative h-full max-h-screen transition-all duration-200 ease-in-out xl:ml-68 rounded-xl">
+        <div class="w-full px-6 py-6 mx-auto">
+            <div class="flex justify-between items-center mb-4">
+            <h1 class="text-3xl font-bold">Kelola Pengguna</h1>
+            <button onclick="tambahPengguna()" class="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600">Tambah Pengguna</button>
+            </div>
+
+            <div class="overflow-x-auto">
+            <table class="w-full min-w-full table-auto border bg-white shadow rounded-lg">
+                <thead class="bg-slate-200 text-slate-700">
+                <tr>
+                    <th class="p-4">Email</th>
+                    <th class="p-4">Username</th>
+                    <th class="p-4">Nomor Kontak</th>
+                    <th class="p-4">Password</th>
+                    <th class="p-4">Level Akses</th>
+                    <th class="p-4">Aksi</th>
+                </tr>
+                </thead>
+                <tbody id="pengguna-tbody" class="divide-y divide-gray-200"></tbody>
+            </table>
+            </div>
+        </div>
+        </main>
+
+  <script>
+    let penggunaList = [
+      {
+        email: "admin@bomboskuy.com",
+        username: "admin",
+        contact: "081234567890",
+        password: "admin123",
+        level: "Admin"
+      },
+      {
+        email: "dina@example.com",
+        username: "dina",
+        contact: "085612345678",
+        password: "dina456",
+        level: "User"
+      }
+    ];
+
+        function renderPengguna() {
+        const tbody = document.getElementById("pengguna-tbody");
+        tbody.innerHTML = "";
+
+        penggunaList.forEach((user, index) => {
+            tbody.innerHTML += `
+            <tr>
+                <td class="p-4">${user.email}</td>
+                <td class="p-4">${user.username}</td>
+                <td class="p-4">${user.contact}</td>
+                <td class="p-4">${user.password}</td>
+                <td class="p-4 capitalize">${user.level}</td>
+                <td class="p-4 space-x-2">
+                <button onclick="editPengguna(${index})" class="text-orange-500 hover:text-orange-700"><i class="fas fa-edit"></i></button>
+                <button onclick="hapusPengguna(${index})" class="text-red-500 hover:text-red-700"><i class="fas fa-trash"></i></button>
+                </td>
+            </tr>
+            `;
+        });
+        }
+
+        function tambahPengguna() {
+        Swal.fire({
+            title: 'Tambah Pengguna',
+            html: `
+            <input id="email" class="swal2-input" placeholder="Email" type="email">
+            <input id="username" class="swal2-input" placeholder="Username">
+            <input id="contact" class="swal2-input" placeholder="Contact Number" type="tel">
+            <input id="password" class="swal2-input" placeholder="Password" type="password">
+            <select id="level" class="swal2-input">
+                <option value="">Pilih Level Akses</option>
+                <option value="admin">Admin</option>
+                <option value="user">User</option>
+            </select>
+            `,
+            showCancelButton: true,
+            confirmButtonText: 'Tambah',
+            preConfirm: () => {
+            const email = document.getElementById("email").value;
+            const username = document.getElementById("username").value;
+            const contact = document.getElementById("contact").value;
+            const password = document.getElementById("password").value;
+            const level = document.getElementById("level").value;
+
+            if (!email || !username || !contact || !password || !level) {
+                Swal.showValidationMessage("Semua field wajib diisi");
+            } else {
+                penggunaList.push({ email, username, contact, password, level });
+                renderPengguna();
+            }
+            }
+        });
+        }
+
+
+        function editPengguna(index) {
+        const user = penggunaList[index];
+
+        Swal.fire({
+            title: 'Edit Pengguna',
+            html: `
+            <input id="email" class="swal2-input" value="${user.email}" type="email">
+            <input id="username" class="swal2-input" value="${user.username}">
+            <input id="contact" class="swal2-input" value="${user.contact}" type="tel">
+            <input id="password" class="swal2-input" value="${user.password}" type="text">
+            <select id="level" class="swal2-input">
+                <option value="admin" ${user.level === "admin" ? "selected" : ""}>Admin</option>
+                <option value="user" ${user.level === "user" ? "selected" : ""}>User</option>
+            </select>
+            `,
+            showCancelButton: true,
+            confirmButtonText: 'Update',
+            cancelButtonText: 'Batal',
+            preConfirm: () => {
+            const email = document.getElementById("email").value;
+            const username = document.getElementById("username").value;
+            const contact = document.getElementById("contact").value;
+            const password = document.getElementById("password").value;
+            const level = document.getElementById("level").value;
+
+            if (!email || !username || !contact || !password || !level) {
+                Swal.showValidationMessage("Semua field wajib diisi");
+            } else {
+                penggunaList[index] = { email, username, contact, password, level };
+                renderPengguna();
+            }
+            }
+        });
+        }
+
+
+    function hapusPengguna(index) {
+      Swal.fire({
+        title: 'Yakin ingin menghapus pengguna ini?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Hapus',
+        cancelButtonText: 'Batal',
+        didOpen: () => {
+          document.querySelector('.swal2-confirm').classList.add('delete-button');
+        }
+      }).then(result => {
+        if (result.isConfirmed) {
+          penggunaList.splice(index, 1);
+          renderPengguna();
+        }
+      });
+    }
+
+    renderPengguna();
+  </script>
+
+</body>
+</html>

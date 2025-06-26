@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Berita - Bomboskuy</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="icon" type="image/png" href="assets/bomboskuy-nobg.png" />
+</head>
+
+<body class="text-gray-800">
+
+  <!-- Navbar -->
+  <!-- Navbar -->
+  <div id="header-placeholder"></div>
+  
+  <main class="pt-20"></main>
+
+<!-- Artikel Berita -->
+    <section class="max-w-3xl mx-auto px-6 py-12" id="berita-container">
+        <p class="text-gray-500">Memuat berita...</p>
+    </section>
+  
+  <!-- Baca Juga -->  
+        <section class="max-w-3xl mx-auto px-6 mt-16 pb-20" id="baca-juga-section">
+            <h2 class="text-xl font-bold text-gray-800 mb-4">Baca Juga</h2>
+            <div id="baca-juga-list" class="grid gap-4 sm:grid-cols-2"></div>
+        </section>
+        
+        <!-- Footer -->
+        <footer class="bg-gray-900 text-white py-10">
+          <div class="text-center">
+            <div class="flex justify-center items-center space-x-3 mb-4">
+              <img src="assets/bomboskuy-nobg.png" class="w-10 h-10 rounded-full" />
+              <span class="text-xl font-semibold">Bomboskuy</span>
+            </div>
+            <p class="text-gray-400 mb-4">Bomboloni manis, lembut, dan bikin ketagihan! Untuk setiap momen hidup Anda.</p>
+            <p class="text-gray-600 text-sm">&copy; 2025 Bomboskuy. All rights reserved.</p>
+          </div>
+        </footer>
+        
+        <script>
+  const beritaData = {
+    "festival2025": {
+      title: "Bomboskuy Guncang Festival Kuliner Nasional 2025 di Surabaya!",
+      image: "assets/drian.jpg",
+      content: `
+        Kami sangat bangga mengumumkan keberhasilan Bomboskuy dalam partisipasinya di Festival Kuliner Nasional 2025 yang berlangsung meriah di Surabaya pada bulan Maret lalu. 
+        Selama dua hari penuh antusiasme, Bomboskuy berhasil menyajikan lebih dari 500 bomboloni segar kepada para pengunjung, memuaskan dahaga mereka akan kelezatan donat Italia otentik kami. 
+        Kehadiran kami di salah satu ajang kuliner terbesar ini menjadi bukti nyata komitmen Bomboskuy untuk terus berinteraksi dan menyapa para penggemar di seluruh Indonesia.
+        <br><br>
+        Antusiasme yang ditunjukkan oleh masyarakat sungguh luar biasa dan melampaui ekspektasi kami. 
+        Pujian demi pujian mengalir deras, bahkan banyak pengunjung yang secara langsung menyatakan bahwa bomboloni Bomboskuy adalah “yang paling enak dari seluruh stand donat” di festival tersebut. 
+        Varian unggulan kami seperti Choco Lava dengan lelehan cokelatnya yang menggoda dan Vanilla Cream yang lembut nan manis, menjadi favorit mutlak, selalu diserbu pembeli dan ludes dalam waktu singkat. 
+        Respon positif ini menjadi motivasi besar bagi kami untuk terus berinovasi dan menjaga kualitas produk.
+        <br><br>
+        Kami ingin mengucapkan terima kasih sebesar-besarnya atas dukungan luar biasa dari semua pelanggan setia dan pengunjung Festival Kuliner Nasional 2025. 
+        Keberhasilan ini tidak lepas dari kepercayaan dan kecintaan Anda terhadap produk Bomboskuy. 
+        Nantikan kehadiran kami di kota Anda berikutnya! Kami sangat bersemangat untuk membawa kelezatan bomboloni Bomboskuy lebih dekat kepada Anda.
+      `
+    },
+    "matcha-tiramisu": {
+      title: "Bomboskuy Hadirkan Sensasi Baru: Matcha dan Tiramisu Kini Tersedia!",
+      image: "assets/bombo-matcha.jpg",
+      content: `
+        Kami sangat antusias mengumumkan kehadiran dua varian rasa terbaru yang siap memanjakan lidah Anda: Matcha dan Tiramisu! 
+        Dibuat dengan sepenuh hati dari bahan-bahan pilihan terbaik, kedua rasa istimewa ini kini sudah bisa Anda nikmati di seluruh outlet Bomboskuy. 
+        Bersiaplah untuk pengalaman rasa yang tak terlupakan.
+        Varian Matcha kami menawarkan sensasi teh hijau Jepang yang autentik dan lembut. 
+        <br><br>
+        Setiap gigitan akan membawa Anda pada ketenangan dengan sentuhan rasa pahit manis yang seimbang, menciptakan harmoni sempurna bagi para pencinta teh. 
+        Sementara itu, bagi Anda penggemar cita rasa klasik yang elegan, varian Tiramisu adalah jawabannya. 
+        Perpaduan sempurna antara aroma kopi yang kuat, kelembutan keju mascarpone, dan sentuhan kakao akan membawa Anda seolah sedang menikmati hidangan penutup khas Italia. 
+        Jangan lewatkan kesempatan untuk mencoba kedua varian baru ini dan temukan favorit Anda!
+        `
+    },
+    "umkm-lokal": {
+        title: "Bomboskuy Perkuat Komitmen, Gandeng UMKM Lokal untuk Kualitas Terbaik dan Pemberdayaan Ekonomi",
+        image: "assets/umkm.jpg",
+        content: `
+            Kami di Bomboskuy percaya bahwa cita rasa terbaik dimulai dari bahan baku berkualitas, dan kualitas itu tumbuh subur di tanah sendiri. 
+            Oleh karena itu, kami dengan bangga mengumumkan kolaborasi strategis dengan Usaha Mikro, Kecil, dan Menengah (UMKM) lokal, khususnya para petani dan produsen bahan baku di Karanganyar dan sekitarnya. 
+            Langkah ini merupakan wujud nyata komitmen kami untuk tidak hanya menyajikan produk unggulan, tetapi juga berkontribusi positif terhadap perekonomian daerah.
+        <br><br>
+            Kemitraan ini bukan sekadar transaksi bisnis; ini adalah ikatan yang kuat untuk saling mendukung. 
+            Dengan menjalin kerja sama langsung, kami memastikan setiap bahan baku yang tiba di dapur Bomboskuy adalah yang tersegar dan berkualitas premium. 
+            Dari hasil panen segar petani hingga produk olahan UMKM yang dibuat dengan dedikasi, setiap elemen berkontribusi pada kelezatan unik yang Anda nikmati dari Bomboskuy.
+        <br><br>    
+            Lebih dari sekadar menjaga standar kualitas produk kami, kolaborasi ini memiliki dampak yang lebih luas. 
+            Kami berperan aktif dalam mendorong pertumbuhan ekonomi lokal, memberikan kesempatan dan stabilitas bagi para pelaku UMKM di Karanganyar. 
+            Dengan mendukung mereka, kami turut serta dalam menciptakan lapangan kerja, meningkatkan pendapatan masyarakat, dan memperkuat fondasi ekonomi daerah secara keseluruhan.
+        <br><br>  
+            Melalui inisiatif ini, Bomboskuy tidak hanya menghadirkan produk yang lezat, tetapi juga produk yang memiliki cerita. Cerita tentang dukungan, kolaborasi, dan komitmen terhadap kualitas serta kesejahteraan bersama. 
+            Kami berharap Anda dapat merasakan semangat ini dalam setiap sajian Bomboskuy, yang merupakan hasil dari kerja keras dan dedikasi komunitas lokal.
+            `
+    },
+        "mahasiswa-luarnegri": {
+        title: "Tak Disangka! Bomboskuy Jadi Favorit Mahasiswa dari Eropa & Kanada!",
+        image: "assets/Canada Polandia Slovakia Customer.jpg",
+        content: `
+            Kabar gembira datang dari Bomboskuy! Kelezatan bomboloni kami kembali mencuri perhatian, kali ini dari kalangan internasional. 
+            Baru-baru ini, Bomboskuy mendapat kehormatan menjadi camilan favorit bagi sekelompok mahasiswa pertukaran pelajar yang berasal dari Slovakia, Polandia, dan Kanada. 
+            Mereka terlihat begitu menikmati setiap gigitan bomboloni kami, membuktikan bahwa cita rasa khas Bomboskuy memiliki daya tarik universal yang melampaui batas geografis dan budaya. 
+            Antusiasme mereka menjadi bukti nyata bahwa kami berhasil mengembangkan produk yang tidak hanya berkualitas tinggi, tetapi juga dicintai oleh seluruh kalangan.        
+            <br><br>
+            Momen hangat bersama para mahasiswa mancanegara ini menggarisbawahi komitmen Bomboskuy untuk selalu menyajikan produk terbaik. 
+            Dari pemilihan bahan baku premium hingga proses pembuatan yang higienis, setiap langkah kami dedikasikan untuk menghasilkan bomboloni dengan kualitas istimewa. 
+            Respons positif dari pengunjung mancanegara ini tidak hanya menjadi kebanggaan, tetapi juga memotivasi kami untuk terus berinovasi dan menjaga standar kualitas. 
+            Ini adalah cerminan bahwa dedikasi kami dalam menghadirkan pengalaman rasa yang tak terlupakan telah diakui hingga ke kancah internasional.        
+            <br><br>    
+            Kami sangat senang melihat bagaimana Bomboskuy dapat menyatukan berbagai latar belakang dalam satu kebahagiaan rasa. 
+            Ke depannya, kami berharap dapat terus menyapa lebih banyak penikmat dari berbagai negara, memperkenalkan kelezatan bomboloni khas Bomboskuy kepada dunia. 
+            Terima kasih atas dukungan tak terhingga dari seluruh pelanggan setia yang selalu mengapresiasi produk kami. 
+            Nantikan terus kejutan dan inovasi menarik lainnya dari Bomboskuy!
+            `
+    }
+  };
+  
+  // Ambil parameter ID dari URL
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get("id");
+
+  const container = document.getElementById("berita-container");
+
+  if (id && beritaData[id]) {
+    const berita = beritaData[id];
+    container.innerHTML = `
+    <img src="${berita.image}" class="w-full rounded-lg mb-6" alt="${berita.title}">
+    <h1 class="text-3xl font-bold mb-4">${berita.title}</h1>
+    <p class="text-gray-600 leading-relaxed">${berita.content}</p>
+    <div class="mt-8">
+        <a href="berita.html" class="text-orange-600 hover:underline">&larr; Kembali ke daftar berita</a>
+        </div>
+    `;
+  } else {
+    container.innerHTML = `
+      <div class="text-center text-gray-500 py-20">
+        <h2 class="text-2xl font-bold mb-4">Berita tidak ditemukan</h2>
+        <a href="berita.html" class="text-orange-600 hover:underline">Kembali ke daftar berita</a>
+      </div>
+    `;
+  }
+
+  // === Tampilkan Baca Juga ===
+  const bacaJugaList = document.getElementById("baca-juga-list");
+
+  Object.entries(beritaData).forEach(([key, berita]) => {
+    if (key !== id) {
+      const el = document.createElement("a");
+      el.href = `berita-detail.html?id=${key}`;
+      el.className = "flex items-start space-x-4 bg-white p-4 rounded-xl shadow hover:shadow-md transition";
+
+      el.innerHTML = `
+        <img src="${berita.image}" class="w-24 h-24 object-cover rounded-md" alt="${berita.title}">
+        <div>
+          <h3 class="font-semibold text-gray-800 mb-1">${berita.title}</h3>
+          <p class="text-sm text-gray-500 line-clamp-2">${stripHTML(berita.content).slice(0, 90)}...</p>
+        </div>
+      `;
+      bacaJugaList.appendChild(el);
+    }
+  });
+
+  // Helper function untuk hilangkan tag HTML dari content
+  function stripHTML(html) {
+    const div = document.createElement("div");
+    div.innerHTML = html;
+    return div.textContent || div.innerText || "";
+  }
+</script>
+
+    <script>
+    // Dapatkan nama file halaman yang sedang dibuka
+    const currentPage = window.location.pathname.split("/").pop();
+
+    // Tentukan file header yang akan dimuat
+    let headerFile;
+
+    if (currentPage === "" || currentPage === "home.html" || currentPage === "index.html") {
+      headerFile = "layout/header.html"; // untuk halaman home
+    } else {
+      headerFile = "layout/header2.html"; // untuk halaman lain
+    }
+
+    // Muat header yang sesuai
+    fetch(headerFile)
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header-placeholder").innerHTML = data;
+      });
+    </script>
+
+
+</body>
+</html>

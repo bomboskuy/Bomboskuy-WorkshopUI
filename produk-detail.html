@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Detail Produk - Bomboskuy</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+  </style>
+</head>
+<!-- HEADER -->
+  <div id="header-placeholder"></div>
+  
+<body class="min-h-screen text-gray-800">
+    <main class="pt-20"></main>
+  <!-- Floating Cart -->
+  <div id="floating-cart" class="fixed bottom-6 right-6 z-50 cart-floating hidden rounded-2xl bg-orange-500 text-black shadow-2xl px-6 py-4 cursor-pointer" onclick="openCartModal()">
+    <div class="flex items-center space-x-4">
+      <div>
+        <div class="text-sm" id="cart-items">0 Menu</div>
+        <div class="text-xs" id="cart-description">Belum ada item</div>
+      </div>
+      <div class="flex flex-col items-end">
+        <div class="text-sm font-semibold" id="cart-total">Rp0</div>
+        <div class="text-xs font-semibold">Lihat Keranjang</div>
+      </div>
+      <div class="ml-2 w-5 h-5 rounded-full bg-gray-200 text-orange-500 flex items-center justify-center text-xs font-bold" id="cart-count">0</div>
+    </div>
+  </div>
+
+  <!-- Cart Modal -->
+  <div id="cart-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+    <div class="bg-white rounded-xl p-6 w-96">
+      <h2 class="text-xl font-bold mb-4">Detail Pesanan</h2>
+      <div id="cart-details" class="mb-4"></div>
+      <div id="cart-payment-total" class="font-semibold text-lg mb-4"></div>
+      <div class="flex justify-end gap-2">
+        <button onclick="closeCartModal()" class="px-4 py-2 bg-gray-300 rounded">Batal</button>
+        <button onclick="completePayment()" class="px-4 py-2 bg-orange-500 text-white rounded">Bayar</button>
+      </div>
+    </div>
+  </div>
+
+  <section class="max-w-4xl mx-auto px-6 py-12" id="produk-container">
+    <p class="text-gray-500">Memuat produk...</p>
+  </section>
+
+  <script>
+    const produkList = {
+      "bomboloni-coklat": {
+        nama: "Bomboloni Coklat",
+        deskripsi: "Bomboloni isi coklat dengan topping glaze coklat lumer. Cocok untuk pecinta manis!",
+        gambar: "assets/bombo-coklat.jpg",
+        harga: 10000
+      },
+      "bomboloni-keju": {
+        nama: "Bomboloni Keju",
+        deskripsi: "Lembutnya donat dengan isian krim keju gurih dan taburan keju parut.",
+        gambar: "assets/bombo-keju.jpg",
+        harga: 10000
+      },
+      "bomboloni-matcha": {
+        nama: "Bomboloni Matcha",
+        deskripsi: "Bomboloni dengan rasa khas teh hijau Jepang yang nikmat dan ringan.",
+        gambar: "assets/bombo-matcha.jpg",
+        harga: 10000
+      },
+      "bomboloni-tiramisu": {
+        nama: "Bomboloni Tiramisu",
+        deskripsi: "Bomboloni rasa tiramisu lembut dengan sentuhan kopi dan krim.",
+        gambar: "assets/bombo-tiramisu.jpg",
+        harga: 10000
+      },
+      "bomboloni-stroberi": {
+        nama: "Bomboloni Stroberi",
+        deskripsi: "Isian stroberi segar berpadu dengan lembutnya bomboloni.",
+        gambar: "assets/bombo-stroberi.jpg",
+        harga: 10000
+      },
+      "bomboloni-vanilla": {
+        nama: "Bomboloni Vanilla",
+        deskripsi: "Bomboloni klasik dengan isian krim vanilla manis.",
+        gambar: "assets/bombo-vanilla.jpg",
+        harga: 10000
+      },
+      "bomboloni-pisang": {
+        nama: "Bomboloni Pisang",
+        deskripsi: "Perpaduan bomboloni dengan isian pisang manis.",
+        gambar: "assets/bombo-pisang.jpg",
+        harga: 10000
+      },
+      "bomboloni-blueberry": {
+        nama: "Bomboloni Blueberry",
+        deskripsi: "Lezatnya bomboloni dengan selai blueberry segar.",
+        gambar: "assets/bombo-blueberry.jpg",
+        harga: 10000
+      },
+      "bomboloni-taro": {
+        nama: "Bomboloni Taro",
+        deskripsi: "Bomboloni taro dengan rasa manis dan warna ungu menarik.",
+        gambar: "assets/bombo-taro.jpg",
+        harga: 10000
+
+      },
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+    const container = document.getElementById("produk-container");
+
+    function getCart() {
+      return JSON.parse(localStorage.getItem("cart") || "[]");
+    }
+
+    function saveCart(cart) {
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
+
+    function updateCart() {
+      const cart = getCart();
+      const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+      const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+      document.getElementById('cart-count').textContent = cartCount;
+      document.getElementById('cart-items').textContent = cartCount + ' Menu';
+      document.getElementById('cart-total').textContent = 'Rp' + totalPrice.toLocaleString();
+
+      if (cart.length > 0) {
+        document.getElementById('floating-cart').classList.remove('hidden');
+        const desc = cart.map(i => `${i.quantity} Pcs ${i.name}`).join(', ');
+        document.getElementById('cart-description').textContent = desc.length > 50 ? desc.slice(0, 47) + '...' : desc;
+      } else {
+        document.getElementById('floating-cart').classList.add('hidden');
+        document.getElementById('cart-description').textContent = 'Belum ada item';
+      }
+    }
+
+    function addToCart(itemName, price) {
+      let cart = getCart();
+      const existing = cart.find(item => item.name === itemName);
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        cart.push({ name: itemName, price: price, quantity: 1 });
+      }
+      saveCart(cart);
+      updateCart();
+    }
+
+    function openCartModal() {
+      const cart = getCart();
+      const details = document.getElementById('cart-details');
+      const total = document.getElementById('cart-payment-total');
+
+      details.innerHTML = cart.map(item =>
+        `<div class="flex justify-between mb-2">
+          <span>${item.name} (${item.quantity} pcs)</span>
+          <span>Rp${(item.price * item.quantity).toLocaleString()}</span>
+        </div>`
+      ).join('');
+
+      const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+      total.textContent = 'Total: Rp' + totalPrice.toLocaleString();
+
+      document.getElementById('cart-modal').classList.remove('hidden');
+    }
+
+    function closeCartModal() {
+      document.getElementById('cart-modal').classList.add('hidden');
+    }
+
+    function completePayment() {
+      alert("Pembayaran berhasil!");
+      localStorage.removeItem("cart");
+      updateCart();
+      closeCartModal();
+    }
+
+    if (id && produkList[id]) {
+      const produk = produkList[id];
+      container.innerHTML = `
+        <div class="bg-white rounded-2xl shadow p-6 md:flex gap-6 items-start">
+          <img src="${produk.gambar}" alt="${produk.nama}" class="w-full md:w-1/2 rounded-xl object-cover" />
+          <div class="mt-6 md:mt-0">
+            <h1 class="text-3xl font-bold mb-4">${produk.nama}</h1>
+            <p class="text-black-700 mb-4">${produk.deskripsi}</p>
+            <p class="text-xl font-semibold text-orange-600 mb-6">Rp ${produk.harga.toLocaleString()}</p>
+            <button onclick="addToCart('${produk.nama}', ${produk.harga})" class="mb-4 bg-orange-500 text-black px-6 py-3 rounded-full hover:bg-orange-600 transition">+ Tambahkan ke Keranjang</button>
+            <br />
+            <a href="produk.html" class="inline-block bg-black-300 text-black px-6 py-3 rounded-full hover:bg-black-400 transition">← Kembali ke Produk</a>
+          </div>
+        </div>
+      `;
+    } else {
+      container.innerHTML = `<p class="text-red-500 text-center">Produk tidak ditemukan.</p>`;
+    }
+
+    updateCart();
+  </script>
+
+  <script>
+  fetch('layout/header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header-placeholder').innerHTML = data;
+
+            // Setelah header dimuat, aktifkan efek scroll
+      window.addEventListener('scroll', () => {
+        const navbar = document.getElementById('navbar');
+        if (window.scrollY > 50) {
+          navbar.classList.remove('bg-transparent');
+          navbar.classList.add('bg-white', 'shadow-lg');
+        } else {
+          navbar.classList.remove('bg-white', 'shadow-lg');
+          navbar.classList.add('bg-transparent');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

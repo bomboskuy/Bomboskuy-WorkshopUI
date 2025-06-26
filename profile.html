@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Profil Pengguna - Bomboskuy</title>
+  <link rel="icon" type="image/png" href="assets/bomboskuy-nobg.png" />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(135deg, #fff7ed, #ffedd5);
+      font-family: 'Arial', sans-serif;
+    }
+    .btn-orange {
+      background-color: #f97316;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+    .btn-orange:hover {
+      background-color: #ea580c;
+    }
+  </style>
+</head>
+<body class="min-h-screen text-gray-800">
+
+  <!-- Navbar -->
+<div id="header-placeholder"></div>
+
+  
+    <main class="pt-20"></main>
+
+  <div class="max-w-3xl mx-auto p-6">
+    <!-- Header -->
+  <section class="text-center py-12">
+    <h1 class="text-4xl font-bold mb-2">Profil Pengguna</h1>
+    <div class="w-24 h-1 bg-gradient-to-r from-orange-400 to-orange-600 mx-auto mt-0"></div>
+  </section>
+  
+
+    <!-- Profil Card -->
+    <div class="bg-white rounded-2xl shadow-md p-6 flex flex-col md:flex-row items-center gap-6">
+      <img src="assets/akbar.jpg" alt="Foto Profil" class="w-32 h-32 rounded-full object-cover shadow-md">
+
+      <!-- Tampilan data -->
+      <div class="flex-1 space-y-3" id="view-profile">
+        <p><span class="text-sm text-gray-500">Nama:</span> <span id="view-nama" class="text-lg font-semibold">Akbar ZJY</span></p>
+        <p><span class="text-sm text-gray-500">Email:</span> <span id="view-email" class="text-lg">akbar@example.com</span></p>
+        <p><span class="text-sm text-gray-500">No. Telepon:</span> <span id="view-phone" class="text-lg">+62 812 3456 7890</span></p>
+        <p><span class="text-sm text-gray-500">Usia:</span> <span id="view-age" class="text-lg">22 tahun</span></p>
+      </div>
+
+      <!-- Form edit (disembunyikan dulu) -->
+      <form id="edit-profile" class="flex-1 space-y-3 hidden" onsubmit="submitEdit(event)">
+        <div>
+          <label class="text-sm text-gray-500 block">Nama</label>
+          <input id="input-nama" type="text" required class="w-full border rounded-md px-4 py-2 focus:ring-2 focus:ring-orange-400">
+        </div>
+        <div>
+          <label class="text-sm text-gray-500 block">Email</label>
+          <input id="input-email" type="email" required class="w-full border rounded-md px-4 py-2 focus:ring-2 focus:ring-orange-400">
+        </div>
+        <div>
+          <label class="text-sm text-gray-500 block">No. Telepon</label>
+          <input id="input-phone" type="tel" required class="w-full border rounded-md px-4 py-2 focus:ring-2 focus:ring-orange-400">
+        </div>
+        <div>
+          <label class="text-sm text-gray-500 block">Usia</label>
+          <input id="input-age" type="number" min="1" required class="w-full border rounded-md px-4 py-2 focus:ring-2 focus:ring-orange-400">
+        </div>
+        <div class="flex gap-2">
+          <button type="submit" class="btn-orange">Simpan</button>
+          <button type="button" onclick="toggleEdit(false)" class="btn-orange bg-gray-300 text-gray-700 hover:bg-gray-400">Batal</button>
+        </div>
+      </form>
+
+      <!-- Tombol edit -->
+      <div class="mt-4 md:mt-0" id="edit-button-container">
+        <button class="btn-orange" onclick="toggleEdit(true)">Edit</button>
+      </div>
+    </div>
+
+    <!-- Riwayat Transaksi -->
+    <div class="mt-10">
+      <h2 class="text-xl font-bold mb-4">Riwayat Transaksi</h2>
+      <a href="riwayat-transaksi.html" class="block bg-white shadow hover:shadow-lg rounded-xl p-4 transition cursor-pointer">
+        <div class="flex justify-between items-center">
+          <div class="flex items-center gap-3">
+            <svg class="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2a4 4 0 014-4h6M9 5h6a2 2 0 012 2v12a2 2 0 01-2 2H9a2 2 0 01-2-2V7a2 2 0 012-2z" />
+            </svg>
+            <span class="text-gray-800 font-semibold">Lihat Riwayat Transaksi</span>
+          </div>
+          <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    // Menampilkan form edit
+    function toggleEdit(show) {
+      document.getElementById('view-profile').classList.toggle('hidden', show);
+      document.getElementById('edit-profile').classList.toggle('hidden', !show);
+      document.getElementById('edit-button-container').classList.toggle('hidden', show);
+
+      if (show) {
+        // Isi form dengan data tampilan saat ini
+        document.getElementById('input-nama').value = document.getElementById('view-nama').textContent;
+        document.getElementById('input-email').value = document.getElementById('view-email').textContent;
+        document.getElementById('input-phone').value = document.getElementById('view-phone').textContent;
+        document.getElementById('input-age').value = parseInt(document.getElementById('view-age').textContent);
+      }
+    }
+
+    // Ketika form disubmit
+    function submitEdit(e) {
+      e.preventDefault();
+
+      // Ambil nilai input
+      const nama = document.getElementById('input-nama').value;
+      const email = document.getElementById('input-email').value;
+      const phone = document.getElementById('input-phone').value;
+      const age = document.getElementById('input-age').value;
+
+      // Update tampilan data
+      document.getElementById('view-nama').textContent = nama;
+      document.getElementById('view-email').textContent = email;
+      document.getElementById('view-phone').textContent = phone;
+      document.getElementById('view-age').textContent = age + ' tahun';
+
+      // Sembunyikan form, tampilkan data
+      toggleEdit(false);
+    }
+  </script>
+
+      <script>
+    // Dapatkan nama file halaman yang sedang dibuka
+    const currentPage = window.location.pathname.split("/").pop();
+
+    // Tentukan file header yang akan dimuat
+    let headerFile;
+
+    if (currentPage === "" || currentPage === "home.html" || currentPage === "index.html") {
+      headerFile = "layout/header.html"; // untuk halaman home
+    } else {
+      headerFile = "layout/header2.html"; // untuk halaman lain
+    }
+
+    // Muat header yang sesuai
+    fetch(headerFile)
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header-placeholder").innerHTML = data;
+      });
+    </script>
+
+</body>
+</html>

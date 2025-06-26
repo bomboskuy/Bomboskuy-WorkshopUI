@@ -1,29 +1,58 @@
-<!-- layout/header.html -->
-<header class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-lg">
-    <div class="container mx-auto flex items-center justify-between px-6 py-4">
-      <div class="flex items-center space-x-3">
-        <div class="w-16 h-16 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full flex items-center justify-center">
-            <a href="https://www.instagram.com/bomboskuy" target="_blank" rel="noopener noreferrer">
-              <img src="assets/bomboskuy-nobg.png" alt="Logo Bomboskuy" class="w-16 h-16 rounded-full">
-            </a>
-        </div>
-      </div>
-      <nav class="hidden md:flex space-x-8">
-        <a href="home.html" class="text-gray-700 hover:text-orange-600 font-semibold transition-colors">Home</a>
-        <a href="produk.html" class="text-gray-700 hover:text-orange-600 font-semibold transition-colors">Produk</a>
-        <a href="berita.html" class="text-gray-700 hover:text-orange-600 font-semibold transition-colors">Berita</a>
-      </nav>
-      <div class="md:hidden">
-        <button class="text-gray-700">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-        </button>
+<!--   
+  Tambahkan ini pada bagian <header></header>  
+  <div id="header-placeholder"></div>
+
+  tambahin ini setelah manggil header
+   <main class="pt-20">
+  
+
+  Tambahkan ini pada bagian <script></script>
+  fetch('layout/header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header-placeholder').innerHTML = data;
+
+            // Setelah header dimuat, aktifkan efek scroll
+      window.addEventListener('scroll', () => {
+        const navbar = document.getElementById('navbar');
+        if (window.scrollY > 50) {
+          navbar.classList.remove('bg-transparent');
+          navbar.classList.add('bg-white', 'shadow-lg');
+        } else {
+          navbar.classList.remove('bg-white', 'shadow-lg');
+          navbar.classList.add('bg-transparent');
+        }
+      });
+    });
+  
+    -->
+
+<!-- Navbar -->
+<!-- header.html -->
+<header id="navbar" class="fixed w-full z-50 bg-white/10 backdrop-blur-md transition-all duration-300">
+  <div class="container mx-auto flex items-center justify-between px-6 py-4">
+    <div class="flex items-center space-x-3">
+      <div class="w-16 h-16 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full flex items-center justify-center">
+        <a href="https://www.instagram.com/bomboskuy" target="_blank" rel="noopener noreferrer">
+          <img src="assets/bomboskuy-nobg.png" alt="Logo Bomboskuy" class="w-16 h-16 rounded-full">
+        </a>
       </div>
     </div>
-        
-    <link rel="icon" type="image/png" href="assets/bomboskuy-nobg.png" />
-    <title>Bomboskuy | Dashboard</title>
-  </header>
+    <nav class="hidden md:flex space-x-8">
+      <a href="home.html" class="text-orange-600 font-semibold">Tentang Kami</a>
+      <a href="produk.html" class="text-orange-600 font-semibold">Produk</a>
+      <a href="berita.html" class="text-orange-600 font-semibold">Berita</a>
+    </nav>
+    <div class="flex items-center space-x-4">
+      <a href="profile.html" class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300 transition">
+        <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</header>
 
-  
+
+
